@@ -1,3 +1,5 @@
+import { createStore } from "redux";
+
 /* eslint-disable no-case-declarations */
 const ADD_TASK = "task/add";
 const DELETE_TASK = "task/delete";
@@ -27,4 +29,15 @@ const taskReducer = (state = initialState, action) => {
         default:
             return state;
     }
-}
+};
+
+// Step 2: Create the Redux store using the reducer 
+const store = createStore(taskReducer);
+console.log(store);
+
+
+// Step 3: Log the initial state 
+// The getState method is a synchronous function that returns the current
+// state of a Redux application. It includes the entire state of the application, 
+// including all the reducers and their respective CustomStateSet.
+
