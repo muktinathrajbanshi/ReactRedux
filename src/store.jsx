@@ -7,6 +7,7 @@ const DELETE_TASK = "task/delete";
 
 const initialState = {
     task: [],
+    isLoading: false,
 }
 
 const taskReducer = (state = initialState, action) => {
@@ -41,3 +42,15 @@ console.log(store);
 // state of a Redux application. It includes the entire state of the application, 
 // including all the reducers and their respective CustomStateSet.
 
+console.log("initial State: ", store.getState());
+
+// Step 4: Dispatch an action to add a task 
+store.dispatch({ type: ADD_TASK, payload: "Listen My Songs!" });
+console.log("updated State: ", store.getState());
+
+
+store.dispatch({ type: ADD_TASK, payload: "Listen My Hearts Beats! "});
+console.log("updated State: ", store.getState());
+
+store.dispatch({ type: DELETE_TASK, payload: 1 });
+console.log("deleted State: ", store.getState());
