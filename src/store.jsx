@@ -45,12 +45,25 @@ console.log(store);
 console.log("initial State: ", store.getState());
 
 // Step 4: Dispatch an action to add a task 
-store.dispatch({ type: ADD_TASK, payload: "Listen My Songs!" });
+// store.dispatch({ type: ADD_TASK, payload: "Are baba!" });
+store.dispatch(addTask("Are baba!"));
 console.log("updated State: ", store.getState());
 
 
-store.dispatch({ type: ADD_TASK, payload: "Listen My Hearts Beats! "});
+// store.dispatch({ type: ADD_TASK, payload: "Listen My Hearts Beats!" });
+store.dispatch(addTask("Listen My Hearts Beats!"));
 console.log("updated State: ", store.getState());
 
-store.dispatch({ type: DELETE_TASK, payload: 1 });
+// store.dispatch({ type: DELETE_TASK, payload: 1 })
+store.dispatch(deleteTask(1));
 console.log("deleted State: ", store.getState());
+
+
+// Step 5: Create action creators
+const addTask = (data) => {
+   return { type: ADD_TASK, payload: data }
+} 
+
+const deleteTask = (id) => {
+    return { type: DELETE_TASK, payload: id }
+}
