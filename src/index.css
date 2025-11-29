@@ -1,0 +1,24 @@
+ul li {
+  list-style: square;
+  padding: 1rem 8rem 1rem 5rem;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+ul li:hover {
+  background-color: rgb(234, 2, 2, 0.1);
+}
+
+ul li .icon-style {
+  color: red;
+}
+
+ul li.checked {
+  color: #555;
+  text-decoration: line-through;
+}
