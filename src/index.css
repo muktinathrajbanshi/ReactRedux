@@ -1,3 +1,27 @@
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 1rem;
+  font-family: "urbanist", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 1.6rem 5rem;
+  background-color: #2d3436;
+  color: #f5f7f8;
+  font-weight: 800;
+  border-radius: 4rem;
+  -webkit-border-radius: 4rem;
+  -moz-border-radius: 4rem;
+  -ms-border-radius: 4rem;
+  -o-border-radius: 4rem;
+  cursor: pointer;
+}
+
 ul li {
   list-style: square;
   padding: 1rem 8rem 1rem 5rem;
