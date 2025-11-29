@@ -1,3 +1,28 @@
+.todo-app {
+  width: 100%;
+  max-width: 54rem;
+  margin: 10rem auto 2rem;
+  padding: 4rem 3rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+  box-shadow: rgba(255, 255, 255, 0.2) 0rem 0.2rem 1rem;
+}
+
+.todo-app h1 {
+  color: #16032a;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.todo-app i {
+  margin-right: 1rem;
+}
+
 .row {
   display: flex;
   align-items: center;

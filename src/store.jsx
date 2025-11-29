@@ -33,7 +33,7 @@ const taskReducer = (state = initialState, action) => {
 };
 
 // Step 2: Create the Redux store using the reducer 
-const store = createStore(taskReducer);
+export const store = createStore(taskReducer);
 console.log(store);
 
 
@@ -49,16 +49,6 @@ console.log("initial State: ", store.getState());
 store.dispatch(addTask("Are baba!"));
 console.log("updated State: ", store.getState());
 
-
-// store.dispatch({ type: ADD_TASK, payload: "Listen My Hearts Beats!" });
-store.dispatch(addTask("Listen My Hearts Beats!"));
-console.log("updated State: ", store.getState());
-
-// store.dispatch({ type: DELETE_TASK, payload: 1 })
-store.dispatch(deleteTask(1));
-console.log("deleted State: ", store.getState());
-
-
 // Step 5: Create action creators
 const addTask = (data) => {
    return { type: ADD_TASK, payload: data }
@@ -67,3 +57,7 @@ const addTask = (data) => {
 const deleteTask = (id) => {
     return { type: DELETE_TASK, payload: id }
 }
+
+
+
+
