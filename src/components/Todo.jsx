@@ -11,7 +11,8 @@ export const Todo = () => {
                         <button>Add Task</button>
                     </form>
                 </div>
+                <ul id="list-container"></ul>
             </div>
         </div>
-    )
-}
+    );
+};

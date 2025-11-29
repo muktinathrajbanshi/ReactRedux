@@ -1,7 +1,8 @@
 import React from 'react';
+import { Todo } from './components/Todo';
 
 const App = () => {
-  return <h1>Welcome to the Redux App!</h1>
-}
+  return <Todo />;
+};
 
-export default App
+export default App;
