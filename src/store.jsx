@@ -8,7 +8,16 @@ const DELETE_TASK = "task/delete";
 const initialState = {
     task: [],
     isLoading: false,
-}
+};
+
+// Step 5: Create action creators
+const addTask = (data) => {
+   return { type: ADD_TASK, payload: data }
+}; 
+
+const deleteTask = (id) => {
+    return { type: DELETE_TASK, payload: id }
+};
 
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -19,14 +28,11 @@ const taskReducer = (state = initialState, action) => {
             };
 
         case DELETE_TASK:
-            const updatedTask = state.task.filter((curTask, index) => {
-                return index !== action.payload;
-            });
-            return {
-                ... state,
+            const updatedTask = state.task.filter((curTask, index) => index !== action.payload); 
+               return {
+                ...state,
                 task: updatedTask,
-            };    
-            
+               };
         default:
             return state;
     }
@@ -34,14 +40,8 @@ const taskReducer = (state = initialState, action) => {
 
 // Step 2: Create the Redux store using the reducer 
 export const store = createStore(taskReducer);
-console.log(store);
-
 
 // Step 3: Log the initial state 
-// The getState method is a synchronous function that returns the current
-// state of a Redux application. It includes the entire state of the application, 
-// including all the reducers and their respective CustomStateSet.
-
 console.log("initial State: ", store.getState());
 
 // Step 4: Dispatch an action to add a task 
@@ -49,14 +49,7 @@ console.log("initial State: ", store.getState());
 store.dispatch(addTask("Are baba!"));
 console.log("updated State: ", store.getState());
 
-// Step 5: Create action creators
-const addTask = (data) => {
-   return { type: ADD_TASK, payload: data }
-} 
 
-const deleteTask = (id) => {
-    return { type: DELETE_TASK, payload: id }
-}
 
 
 
