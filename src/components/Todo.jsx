@@ -10,6 +10,12 @@ export const Todo = () => {
     // console.log("react states", state.task);
 
     const dispatch = useDispatch();
+
+    // handle handleFormSubmit 
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        return dispatch(addTask(task));
+    }
     
 
     return (
@@ -19,7 +25,7 @@ export const Todo = () => {
                     <i className="fa-regular fa-pen-to-square"></i>To-do List:
                 </h1>
                 <div className="row">
-                    <form>
+                    <form onSubmit={handleFormSubmit}>
                         <input 
                         type="text" 
                         id="input-box" 
