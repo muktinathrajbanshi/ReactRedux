@@ -24,6 +24,12 @@ export const Todo = () => {
                             return (
                                 <li key={index}>
                                     <p>{index}: {curTask}</p>
+                                    <div>
+                                        <MdDeleteForever
+                                         className="icon-style"
+                                         onClick={() => handleTaskDelete(index)}
+                                         />
+                                    </div>
                                 </li>
                             );
                         })
