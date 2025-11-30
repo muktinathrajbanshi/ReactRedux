@@ -2,8 +2,8 @@ import { useSelector } from "react-redux";
 
 export const Todo = () => {
 
-    const state = useSelector((state) => state);
-    console.log("react states", state.task);
+    const tasks = useSelector((state) => state.task);
+    // console.log("react states", state.task);
     
 
     return (
@@ -19,7 +19,15 @@ export const Todo = () => {
                     </form>
                 </div>
                 <ul id="list-container">
-
+                    {
+                        tasks.map((curTask, index) => {
+                            return (
+                                <li key={index}>
+                                    <p>{index}: {curTask}</p>
+                                </li>
+                            );
+                        })
+                    }
                 </ul>
             </div>
         </div>

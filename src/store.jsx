@@ -45,8 +45,9 @@ export const store = createStore(taskReducer);
 console.log("initial State: ", store.getState());
 
 // Step 4: Dispatch an action to add a task 
-// store.dispatch({ type: ADD_TASK, payload: "Are baba!" });
-store.dispatch(addTask("Are baba!"));
+store.dispatch(addTask("Good Morning!"));
+store.dispatch(addTask("Good Afternoon!"));
+store.dispatch(addTask("Good Night"));
 console.log("updated State: ", store.getState());
 
 
