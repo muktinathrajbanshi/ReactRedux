@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
-import { addTask } from "../store";
+import { addTask, deleteTask } from "../store";
 
 export const Todo = () => {
 
@@ -17,7 +17,12 @@ export const Todo = () => {
         e.preventDefault();
         dispatch(addTask(task));
         return setTask("");
-    }
+    };
+
+    // handle handleTaskDelete 
+    const handleTaskDelete = (id) => {
+        return dispatch(deleteTask(id));
+    };
     
 
     return (
