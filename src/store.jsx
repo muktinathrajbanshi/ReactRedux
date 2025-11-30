@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+import { composeWithDevTools } from "@redux-devtools/extension";
 
 /* eslint-disable no-case-declarations */
 const ADD_TASK = "task/add";
@@ -39,7 +40,7 @@ const taskReducer = (state = initialState, action) => {
 };
 
 // Step 2: Create the Redux store using the reducer 
-export const store = createStore(taskReducer);
+export const store = createStore(taskReducer, composeWithDevTools);
 
 // Step 3: Log the initial state 
 console.log("initial State: ", store.getState());
