@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
+import { addTask } from "../store";
 
 export const Todo = () => {
 
@@ -14,7 +15,8 @@ export const Todo = () => {
     // handle handleFormSubmit 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        return dispatch(addTask(task));
+        dispatch(addTask(task));
+        return setTask("");
     }
     
 
