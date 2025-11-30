@@ -1,10 +1,15 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MdDeleteForever } from "react-icons/md";
+import { useState } from "react";
 
 export const Todo = () => {
 
+    const [task, setTask] = useState("");
+
     const tasks = useSelector((state) => state.task);
     // console.log("react states", state.task);
+
+    const dispatch = useDispatch();
     
 
     return (
@@ -15,7 +20,13 @@ export const Todo = () => {
                 </h1>
                 <div className="row">
                     <form>
-                        <input type="text" id="input-box" placeholder="Add a new task" />
+                        <input 
+                        type="text" 
+                        id="input-box" 
+                        placeholder="Add a new task" 
+                        value={task}
+                        onChange={(e) => setTask(e.target.value)}    
+                        />
                         <button>Add Task</button>
                     </form>
                 </div>
