@@ -1,4 +1,11 @@
+import { useSelector } from "react-redux";
+
 export const Todo = () => {
+
+    const state = useSelector((state) => state);
+    console.log("react states", state.task);
+    
+
     return (
         <div className="container">
             <div className="todo-app">
@@ -11,7 +18,9 @@ export const Todo = () => {
                         <button>Add Task</button>
                     </form>
                 </div>
-                <ul id="list-container"></ul>
+                <ul id="list-container">
+
+                </ul>
             </div>
         </div>
     );
