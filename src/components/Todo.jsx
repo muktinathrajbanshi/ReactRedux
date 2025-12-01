@@ -23,6 +23,10 @@ export const Todo = () => {
     const handleTaskDelete = (id) => {
         return dispatch(deleteTask(id));
     };
+
+    const handleFetchTasks = () => {
+
+    };
     
 
     return (
@@ -43,6 +47,9 @@ export const Todo = () => {
                         <button>Add Task</button>
                     </form>
                 </div>
+
+                <button onClick={handleFetchTasks}>Fetch Tasks</button>
+
                 <ul id="list-container">
                     {
                         tasks.map((curTask, index) => {

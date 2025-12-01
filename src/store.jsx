@@ -1,9 +1,11 @@
-import { createStore } from "redux";
+import { applyMiddleware createStore } from "redux";
 import { composeWithDevTools } from "@redux-devtools/extension";
+import { thunk } from "redux-thunk";
 
 /* eslint-disable no-case-declarations */
 const ADD_TASK = "task/add";
 const DELETE_TASK = "task/delete";
+const FETCH_TASK = "task/fetch";
 
 
 const initialState = {
@@ -20,6 +22,20 @@ export const deleteTask = (id) => {
     return { type: DELETE_TASK, payload: id }
 };
 
+export const fetchTask = () => {
+    return async (dispatch) => {
+        try {
+            const res = await fetch(
+                "https://jsonplaceholder.typicode.com/todos?_limit=3"
+            );
+            const task = await res.json();
+            dispatch({ type: FETCH_TASK, payload: task });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+};
+
 const taskReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_TASK:
@@ -34,13 +50,22 @@ const taskReducer = (state = initialState, action) => {
                 ...state,
                 task: updatedTask,
                };
+
+        case FETCH_TASK: 
+            return {
+                ...state,
+                task:[...state.task, action.payload]
+            }       
         default:
             return state;
     }
 };
 
 // Step 2: Create the Redux store using the reducer 
-export const store = createStore(taskReducer, composeWithDevTools());
+export const store = createStore(
+    taskReducer, 
+    composeWithDevTools(applyMiddleware(thunk))
+);
 
 // Step 3: Log the initial state 
 console.log("initial State: ", store.getState());
